@@ -1,16 +1,21 @@
 function line2ind(i,n)
-sum = n - 1
-row = 1
-while i > sum
-  row += 1
-  sum += n - row
-end
+  sum = n - 1
+  row = 1
+  while i > sum
+    row += 1
+    sum += n - row
+  end
 
-(row, n - sum + i)
+  (row, n - sum + i)
 end
 
 println("slow")
-@time line2ind(400000,1000)
+tic()
+for i=1:400000
+  line2ind(i,1000);
+end
+toc() # 0.0474s
+
 for i = 1:10
   println(line2ind(i,5))
 end
@@ -23,7 +28,12 @@ function line2ind_fast(i,n)
 end
 
 println("fast")
-@time line2ind_fast(400000,1000)
+tic()
+for i=1:400000
+  line2ind_fast(i,1000);
+end
+toc() # 0.0147s
+
 for i = 1:10
   println(line2ind_fast(i,5))
 end
