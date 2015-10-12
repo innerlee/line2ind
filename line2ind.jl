@@ -19,7 +19,7 @@ function line2ind_fast(i,n)
   t = n*(n-1)/2 - i
   x = ceil((sqrt(9+8*t)-1)/2)
   y = n - t + (x-1)*x/2
-  (x,y)
+  (n - x, y)
 end
 
 println("fast")
